@@ -824,7 +824,7 @@ export default function App() {
             `} onClick={() => setIsSidebarOpen(false)} />
             
             <div className={`
-              fixed inset-y-0 left-0 z-50 w-72 bg-white transform transition-transform duration-300 ease-in-out sm:relative sm:translate-x-0 sm:z-0
+              fixed inset-y-0 left-0 z-50 w-72 bg-white transform transition-transform duration-300 ease-in-out sm:relative sm:translate-x-0 sm:z-0 print:hidden
               ${isSidebarOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'}
             `}>
               <Sidebar 
@@ -838,7 +838,7 @@ export default function App() {
               />
             </div>
             
-            <div className="flex-1 overflow-auto p-4 sm:p-8 print:p-0 print:overflow-visible bg-slate-100 relative print:flex print:justify-center">
+            <div className="flex-1 overflow-auto p-4 sm:p-8 print:p-0 print:overflow-visible bg-slate-100 relative">
               {/* Floating Button for Mobile Student List */}
               <button 
                 onClick={() => setIsSidebarOpen(true)}

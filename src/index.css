@@ -29,8 +29,13 @@
     background-color: white !important;
     margin: 0 !important;
     padding: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
+    display: block !important;
+    text-align: center !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   #classroom-map-container {
@@ -38,7 +43,6 @@
     max-width: none !important;
     margin: 0 auto !important;
     padding: 0 !important;
-    transform: scale(1.15);
-    transform-origin: top center;
+    transform: none !important;
   }
 }
