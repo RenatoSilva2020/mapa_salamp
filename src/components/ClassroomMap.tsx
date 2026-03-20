@@ -74,7 +74,7 @@ export function ClassroomMap({
                 value={currentClass.classRepresentative || ''}
                 onChange={(e) => onUpdateRepresentative?.(e.target.value.toUpperCase())}
                 disabled={isLocked}
-                className="flex-1 border-b border-slate-300 focus:border-slate-900 outline-none px-2 py-0.5 text-xs sm:text-base font-normal uppercase text-slate-800 disabled:bg-transparent disabled:border-transparent print:border-black print:text-black print:text-[12px] print:w-64 print:flex-none"
+                className="flex-1 border-b border-slate-300 focus:border-slate-900 outline-none px-2 py-0.5 text-xs sm:text-base font-normal uppercase text-slate-800 disabled:bg-transparent disabled:border-transparent print:border-black print:text-black print:text-[12px] print:w-64 print:flex-none print:placeholder:text-transparent"
                 placeholder="Digite o nome..."
               />
             </div>
@@ -87,7 +87,7 @@ export function ClassroomMap({
                 value={currentClass.referenceTeacher || ''}
                 onChange={(e) => onUpdateTeacher?.(e.target.value.toUpperCase())}
                 disabled={isLocked}
-                className="flex-1 border-b border-slate-300 focus:border-slate-900 outline-none px-2 py-0.5 text-xs sm:text-base font-normal uppercase text-slate-800 disabled:bg-transparent disabled:border-transparent print:border-black print:text-black print:text-[12px] print:w-64 print:flex-none"
+                className="flex-1 border-b border-slate-300 focus:border-slate-900 outline-none px-2 py-0.5 text-xs sm:text-base font-normal uppercase text-slate-800 disabled:bg-transparent disabled:border-transparent print:border-black print:text-black print:text-[12px] print:w-64 print:flex-none print:placeholder:text-transparent"
                 placeholder="Digite o nome..."
               />
             </div>
