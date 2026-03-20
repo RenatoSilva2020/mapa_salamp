@@ -35,8 +35,8 @@
 
   #classroom-map-container {
     width: 100% !important;
-    max-width: 210mm !important; /* A4 width minus some margin */
-    margin: 0 auto !important;
+    max-width: none !important;
+    margin: 0 !important;
     padding: 0 !important;
     transform-origin: top center;
   }
