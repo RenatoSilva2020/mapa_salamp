@@ -34,6 +34,16 @@ export function ClassroomMap({
 
   return (
     <div id="classroom-map-container" className="w-full max-w-[95vw] mx-auto bg-white p-4 sm:p-10 shadow-lg rounded-xl border border-slate-200 print:shadow-none print:border-none print:p-0 print:max-w-none print:w-full print:mx-auto">
+      {/* Logo for Print Only - At the very top */}
+      <div className="hidden print:flex print:justify-center print:mb-6">
+        <img 
+          src="https://i.ibb.co/WWK5tpDj/logo-mp.png" 
+          alt="Logo" 
+          className="h-24 w-auto object-contain"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+
       {/* Header Grid */}
       <div className="flex flex-col items-center mb-6 sm:mb-10 print:mb-4 print:w-full">
         {/* Text and Fields Column */}
@@ -85,19 +95,20 @@ export function ClassroomMap({
         </div>
       </div>
 
-      <div className="flex justify-between mb-6 sm:mb-12 px-2 sm:px-4 print:mb-6 print:w-full print:px-0 gap-2">
-        <div className={`flex-1 sm:flex-none sm:w-32 h-12 sm:h-16 bg-slate-200 border-2 border-slate-400 flex items-center justify-center text-center font-bold text-[9px] sm:text-xs text-slate-700 shadow-sm print:border-black print:text-black print:h-12 print:w-32 print:text-[12px] ${currentClass.doorPosition === 'right' ? 'order-last' : 'order-first'}`}>
-          PORTA DA<br/>SALA
-        </div>
-        <div className={`flex-1 sm:flex-none sm:w-32 h-12 sm:h-16 bg-slate-200 border-2 border-slate-400 flex items-center justify-center text-center font-bold text-[9px] sm:text-xs text-slate-700 shadow-sm print:border-black print:text-black print:h-12 print:w-32 print:text-[12px] ${currentClass.deskPosition === 'right' ? 'order-last' : 'order-first'}`}>
-          MESA DO<br/>PROFESSOR
-        </div>
-      </div>
-
       <div className="overflow-x-auto pb-12 -mx-2 px-2 sm:mx-0 sm:px-0 print:overflow-visible print:pb-0 flex justify-start print:justify-center min-h-[500px] sm:min-h-0 w-full max-w-full">
-        <div className="min-w-max mx-auto origin-top transition-transform duration-300 sm:scale-100 scale-[0.8] xs:scale-[0.9] sm:mb-0 -mb-[15%] xs:-mb-[5%] print:scale-100 print:mb-0 print:w-full print:flex print:justify-center print:min-w-0">
+        <div className="min-w-max mx-auto origin-top transition-transform duration-300 sm:scale-100 scale-[0.8] xs:scale-[0.9] sm:mb-0 -mb-[15%] xs:-mb-[5%] print:scale-100 print:mb-0 print:w-fit print:mx-auto print:min-w-0">
+          {/* Door and Desk Row - Moved inside the fit-content container for alignment */}
+          <div className="flex justify-between mb-6 sm:mb-12 px-0 print:mb-10 w-full gap-2">
+            <div className={`flex-1 sm:flex-none sm:w-32 h-12 sm:h-16 bg-slate-200 border-2 border-slate-400 flex items-center justify-center text-center font-bold text-[9px] sm:text-xs text-slate-700 shadow-sm print:border-black print:text-black print:h-16 print:w-40 print:text-sm ${currentClass.doorPosition === 'right' ? 'order-last' : 'order-first'}`}>
+              PORTA DA<br/>SALA
+            </div>
+            <div className={`flex-1 sm:flex-none sm:w-32 h-12 sm:h-16 bg-slate-200 border-2 border-slate-400 flex items-center justify-center text-center font-bold text-[9px] sm:text-xs text-slate-700 shadow-sm print:border-black print:text-black print:h-16 print:w-40 print:text-sm ${currentClass.deskPosition === 'right' ? 'order-last' : 'order-first'}`}>
+              MESA DO<br/>PROFESSOR
+            </div>
+          </div>
+
           <div 
-            className="grid gap-x-2 sm:gap-x-8 md:gap-x-16 gap-y-6 sm:gap-y-10 justify-items-center print:min-w-0 print:gap-x-2 print:gap-y-4"
+            className="grid gap-x-2 sm:gap-x-8 md:gap-x-16 gap-y-6 sm:gap-y-10 justify-items-center print:min-w-0 print:gap-x-6 print:gap-y-10"
             style={{ 
               gridTemplateColumns: `repeat(${currentClass.cols}, minmax(0, 1fr))`,
               width: 'fit-content'
