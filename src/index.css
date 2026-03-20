@@ -22,6 +22,22 @@
   
   @page {
     size: portrait;
-    margin: 10mm;
+    margin: 5mm;
+  }
+
+  body {
+    background-color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  #classroom-map-container {
+    width: 100% !important;
+    max-width: 210mm !important; /* A4 width minus some margin */
+    margin: 0 auto !important;
+    padding: 0 !important;
+    transform-origin: top center;
   }
 }

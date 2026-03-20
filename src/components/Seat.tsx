@@ -29,7 +29,7 @@ export function Seat({ id, student, onDeleteStudent, onUnseatStudent, isSelected
           isSelected ? 'ring-4 ring-blue-500 ring-offset-2 rounded-lg scale-95 z-20' : ''
         } ${
           isOver ? 'bg-blue-50 border-blue-400' : 'bg-white border-slate-400'
-        } print:border-black print:bg-white`}
+        } print:border-black print:bg-white print:w-20 print:h-14`}
       >
         {student ? (
           <div className="w-full h-full group relative">
