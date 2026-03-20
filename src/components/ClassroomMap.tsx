@@ -10,6 +10,8 @@ interface ClassroomMapProps {
   onSelectSeat: (id: string) => void;
   onSelectStudent: (id: string) => void;
   isLocked: boolean;
+  onUpdateRepresentative?: (value: string) => void;
+  onUpdateTeacher?: (value: string) => void;
 }
 
 export function ClassroomMap({ 
@@ -20,7 +22,9 @@ export function ClassroomMap({
   selectedSeatId,
   onSelectSeat,
   onSelectStudent,
-  isLocked
+  isLocked,
+  onUpdateRepresentative,
+  onUpdateTeacher
 }: ClassroomMapProps) {
   const formatDate = (dateString?: string) => {
     if (!dateString) return null;
@@ -30,18 +34,65 @@ export function ClassroomMap({
 
   return (
     <div id="classroom-map-container" className="w-full max-w-[95vw] mx-auto bg-white p-4 sm:p-10 shadow-lg rounded-xl border border-slate-200 print:shadow-none print:border-none print:p-0 print:max-w-none print:w-fit print:mx-auto">
-      <div className="text-center mb-6 sm:mb-10 print:mb-6">
-        <h1 className="text-lg sm:text-2xl font-bold uppercase mb-2 sm:mb-3 text-slate-800 print:text-black print:text-xl">
-          MAPEAMENTO DE SALA – TURMA: {currentClass.name}
-        </h1>
-        {currentClass.lastUpdated && (
-          <p className="text-xs sm:text-sm text-slate-500 mb-2 print:text-black">
-            Atualizado em: {formatDate(currentClass.lastUpdated)}
-          </p>
-        )}
-        <p className="text-[10px] sm:text-base text-slate-600 font-medium max-w-2xl mx-auto print:text-black print:text-sm px-2">
-          O posicionamento de cada estudante deve ser respeitado de acordo com a organização do Mapa de Sala durante todas as aulas!
-        </p>
+      {/* Header Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-4 sm:gap-8 items-center mb-8 sm:mb-12 print:grid-cols-[140px_1fr] print:mb-8">
+        {/* Logo Column */}
+        <div className="flex justify-center sm:justify-start">
+          <img 
+            src="https://i.ibb.co/WWK5tpDj/logo-mp.png" 
+            alt="Logo" 
+            className="h-24 sm:h-32 w-auto object-contain"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+
+        {/* Text and Fields Column */}
+        <div className="flex flex-col gap-4">
+          <div className="text-center">
+            <h1 className="text-base sm:text-xl font-bold uppercase mb-1 text-slate-900 print:text-black print:text-lg leading-tight">
+              MAPEAMENTO DE SALA<br />
+              <span className="text-lg sm:text-3xl">TURMA: {currentClass.name}</span>
+            </h1>
+            {currentClass.lastUpdated && (
+              <p className="text-xs text-slate-500 mb-2 print:text-black">
+                Atualizado em: {formatDate(currentClass.lastUpdated)}
+              </p>
+            )}
+            <p className="text-[10px] sm:text-sm text-slate-700 font-medium print:text-black max-w-2xl mx-auto">
+              O posicionamento de cada estudante deve ser respeitado de acordo com a organização do Mapa de Sala durante todas as aulas!
+            </p>
+          </div>
+
+          {/* Editable Fields */}
+          <div className="space-y-2 max-w-xl mx-auto w-full">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+              <label className="text-xs sm:text-sm font-bold text-slate-900 uppercase whitespace-nowrap print:text-black">
+                REPRESENTANTE DA TURMA:
+              </label>
+              <input 
+                type="text"
+                value={currentClass.classRepresentative || ''}
+                onChange={(e) => onUpdateRepresentative?.(e.target.value.toUpperCase())}
+                disabled={isLocked}
+                className="flex-1 border-b border-slate-300 focus:border-slate-900 outline-none px-2 py-0.5 text-sm sm:text-base font-normal uppercase text-slate-800 disabled:bg-transparent disabled:border-transparent print:border-black print:text-black"
+                placeholder="Digite o nome..."
+              />
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+              <label className="text-xs sm:text-sm font-bold text-slate-900 uppercase whitespace-nowrap print:text-black">
+                PROFESSOR(A) REFERÊNCIA:
+              </label>
+              <input 
+                type="text"
+                value={currentClass.referenceTeacher || ''}
+                onChange={(e) => onUpdateTeacher?.(e.target.value.toUpperCase())}
+                disabled={isLocked}
+                className="flex-1 border-b border-slate-300 focus:border-slate-900 outline-none px-2 py-0.5 text-sm sm:text-base font-normal uppercase text-slate-800 disabled:bg-transparent disabled:border-transparent print:border-black print:text-black"
+                placeholder="Digite o nome..."
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="flex justify-between mb-8 sm:mb-16 px-2 sm:px-4 print:mb-8 gap-2">
