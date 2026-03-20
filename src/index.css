@@ -36,8 +36,9 @@
   #classroom-map-container {
     width: 100% !important;
     max-width: none !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
+    transform: scale(1.15);
     transform-origin: top center;
   }
 }
