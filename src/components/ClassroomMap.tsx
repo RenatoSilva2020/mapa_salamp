@@ -39,7 +39,7 @@ export function ClassroomMap({
         <img 
           src="https://i.ibb.co/WWK5tpDj/logo-mp.png" 
           alt="Logo" 
-          className="h-16 w-auto object-contain"
+          className="h-20 w-auto object-contain"
           referrerPolicy="no-referrer"
         />
       </div>
@@ -54,7 +54,7 @@ export function ClassroomMap({
               <span className="text-lg sm:text-3xl print:text-xl">TURMA: {currentClass.name}</span>
             </h1>
             {currentClass.lastUpdated && (
-              <p className="text-[10px] text-slate-500 mb-1 print:text-black print:text-[8px]">
+              <p className="text-[10px] text-slate-500 mb-1 print:text-black print:text-[12px]">
                 Atualizado em: {formatDate(currentClass.lastUpdated)}
               </p>
             )}
